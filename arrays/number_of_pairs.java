@@ -33,9 +33,6 @@ public class Main {
 
 // } Driver Code Ends
 
-
-
-
 class Solution {
     
     int getIndex(int y[] , int n , int ele){
@@ -55,7 +52,6 @@ class Solution {
         }
         return ans;
     }
-    
     
     long countPairs(int[] x, int[] y, int m, int n) {
         
