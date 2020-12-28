@@ -48,7 +48,7 @@ vector <int> bfs(vector<int> g[], int N) {
         }
         visited[node] = true;
         ans.push_back(node);
-        for(int i=g[node].size()-1; i>=0; i--){
+        for(int i=0; i<g[node].size(); i++){
             if(!visited[g[node][i]]){
                 queue.push(g[node][i]);
             }
