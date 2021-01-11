@@ -129,17 +129,31 @@ struct Node
 // A wrapper over leftViewUtil()
 vector<int> leftView(Node *root)
 {
-   // Your code here
-   vector<int> ans;
-   struct Node* temp = (struct Node*) malloc(sizeof(struct Node));
-   temp = root;
-   while(temp != NULL){
-       ans.push_back( temp->data);
-       if(temp->left == NULL){
-           temp = temp->right;
-       }else{
-            temp = temp->left;  
-       }
-   }
-   return ans;
+    
+
+    if(root==NULL) return {};
+    queue <Node*> q;
+    vector <int> v;
+    
+    q.push(root);
+    Node* temp;
+    int f=0, count=0;
+    
+    while(!q.empty()){
+        count=q.size();
+        while(count--){
+            temp=q.front();
+            q.pop();
+            if(f==0){
+                v.push_back(temp->data);
+            }
+            f++;
+            if(temp->left)
+                q.push(temp->left);
+            if(temp->right)
+                q.push(temp->right);
+        }
+        f=0;
+    }
+return v;
 }
