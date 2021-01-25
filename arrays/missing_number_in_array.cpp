@@ -1,32 +1,62 @@
-#include<bits/stdc++.h>
-using namespace std;
-int main()
- {
-	//code
-	long long t;
-	cin >> t;
-	while(t--){
-	    long long n;
-	    cin >> n;
-	    long long arr[n-1], ans = 0;
-	    for(long long i=0; i<n-1; i++){
-	        cin >> arr[i];
-	    }
-		long long size = sizeof(arr)/sizeof(arr[0]);
+// { Driver Code Starts
+#include <bits/stdc++.h> 
+using namespace std; 
 
-		sort(arr, arr+size);
 
-		for(long long i=0; i<n-1; i++){
-			if(arr[i] != i + 1){
-				ans = i + 1;
-				break;
-			}else if(ans == 0){
-				ans = n;
-			}
-		}
+ // } Driver Code Ends
 
-		cout << ans << endl;
-	}
+
+void merge(int arr1[], int arr2[], int n, int m)
+{
+    int x=n-1, y = 0;
+    while(x>=0 && y<m){ 
+        if(arr1[x] > arr2[y]){
+            swap(arr1[x], arr2[y]);
+            x--;
+            y++;
+        }else{
+            break;
+        }
+    }
+    sort(arr1 , arr1+n);
+    sort(arr2 , arr2+m);
+} 
+
+
+// { Driver Code Starts.
+
+int main() 
+{ 
 	
-	return 0;
-}
+	int T;
+	cin >> T;
+	
+	while(T--){
+	    int n, m;
+	    cin >> n >> m;
+	    
+	    int arr1[n], arr2[m];
+	    
+	    for(int i = 0;i<n;i++){
+	        cin >> arr1[i];
+	    }
+	    
+	    for(int i = 0;i<m;i++){
+	        cin >> arr2[i];
+	    }
+	    
+	    merge(arr1, arr2, n, m); 
+
+        for (int i = 0; i < n; i++) 
+            printf("%d ", arr1[i]); 
+        
+       
+	    for (int i = 0; i < m; i++) 
+		    printf("%d ", arr2[i]); 
+	    
+	    cout<<endl;
+	}
+
+	return 0; 
+} 
+  // } Driver Code Ends
