@@ -1,33 +1,20 @@
-#include <bits/stdc++.h>
-using namespace std;
-
-int main() {
-	//code
-	int t;
-	cin >> t;
-	while(t--){
-	    int n;
-	    cin >> n;
-	    int arr[n], z=0, o=0, t=0;
-	    for(int i=0; i<n; i++){
-	        cin >> arr[i];
-	    }
-	    for(int i=0; i<n; i++){
-	        if(arr[i] == 0)z++;
-	        if(arr[i] == 2)t++;
-	        if(arr[i] == 1)o++;
-	    }
-	    for(int i=0; i<z; i++){
-	        cout << 0 << " ";
-	    }
-	    for(int i=z; i<z+o; i++){
-	        cout << 1 << " ";
-	    }
-	    for(int i=z+o; i<z+o+t; i++){
-	        cout << 2 << " ";
-	    }
-	    cout << endl;
-	}
-	
-	return 0;
+void sort012(int a[], int n)
+{
+    // coode here 
+    map<int, int> m;
+    for(int i=0; i<n; i++){
+        m[a[i]]++;
+    }
+    int zero = m[0];
+    int one = zero + m[1];
+    int two = one + m[2];
+    for(int i=0; i<n; i++){
+        if(zero > i){
+            a[i] = 0;
+        }else if(one > i){
+            a[i] = 1;
+        }else if(two > i){
+            a[i] = 2;
+        }
+    }
 }
