@@ -85,7 +85,10 @@ struct Node {
 int intersectPoint(Node* head1, Node* head2)
 {
     // Your Code Here
-    int n=1, m=1;
+    if(head1 == NULL || head2 == NULL){
+        return -1;
+    }
+    int n=0, m=0;
     Node* temp=head1;
     Node* temp1=head1;
     Node* temp2=head2;
@@ -93,7 +96,7 @@ int intersectPoint(Node* head1, Node* head2)
         temp=temp->next;
         n++;
     }
-    temp = head1;
+    temp = head2;
     while(temp){
         temp=temp->next;
         m++;
@@ -105,7 +108,7 @@ int intersectPoint(Node* head1, Node* head2)
         }
         for(int i=0; i<n; i++){
             if(temp2->next == temp1->next){
-                return temp2->data;
+                return temp2->next->data;
             }
             temp1 = temp1->next;
             temp2 = temp2->next;
@@ -117,7 +120,7 @@ int intersectPoint(Node* head1, Node* head2)
         }
         for(int i=0; i<m; i++){
             if(temp2->next == temp1->next){
-                return temp2->data;
+                return temp2->next->data;
             }
             temp1 = temp1->next;
             temp2 = temp2->next;
