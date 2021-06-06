@@ -130,8 +130,10 @@ bool isSymmetric(struct Node* root)
 	}
 	if(root->right && root->left){
 	    return comp(root->left, root->right);
-	}else{
+	}else if(root->right || root->left){
 	    return false;
+	}else{
+	    return true;
 	}
 	
 }
