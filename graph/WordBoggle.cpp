@@ -32,7 +32,7 @@ public:
         return false;
     }
 
-    bool exists(vector<vector<char> > &board, string word){
+    bool valid(vector<vector<char> > &board, string word){
         int m = board.size();
         int n = board[0].size();
         
@@ -56,7 +56,7 @@ public:
 	    vector<string> ans;
 	    for(int i=0; i<dictionary.size(); i++){
 	        string word = dictionary[i];
-	        if(exists(board, word) == true){
+	        if(valid(board, word) == true){
 	            ans.push_back(word);
 	        }
 	    }
