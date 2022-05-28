@@ -23,6 +23,7 @@ class Solution
             }else{
                 left[i]=st.top()+1;
             }
+
             st.push(i);  
         }
         
@@ -37,6 +38,7 @@ class Solution
             while(!st.empty() && arr[i]<=arr[st.top()]){
                 st.pop();
             }
+            
             if(st.empty()){
                 right[i]=n-1;
             }else{
