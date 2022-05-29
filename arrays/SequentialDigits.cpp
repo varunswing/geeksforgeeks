@@ -15,6 +15,20 @@ public:
             if(arr[i] > high) break;
             v.push_back(arr[i]);
         }
+
+        // string digits = "123456789";
+        
+        // int nl = to_string(low).length();
+        // int nh = to_string(high).length();
+        
+        // for(int i=nl; i<=nh; i++){
+        //     for(int j=0; j<10-i; j++){
+        //         int num = stoi(digits.substr(j, i));
+        //         if(num >= low && num <= high){
+        //             v.push_back(num);
+        //         }
+        //     }
+        // }
         return v;
     }
 };
